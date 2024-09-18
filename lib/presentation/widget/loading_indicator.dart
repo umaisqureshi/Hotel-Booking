@@ -36,7 +36,7 @@ class _LoadingIndicatorState extends State<LoadingIndicator>
             ..duration = c.duration
             ..forward()
             ..repeat();
-        }, controller: _controller, height: 150, width: 150)),
+        }, controller: _controller, height: 250, width: 250)),
       ],
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:hotel_booking/presentation/extension/context_extension.dart';
 import 'package:lottie/lottie.dart';
 
 class ErrorScreenWidget extends StatefulWidget {
@@ -13,10 +13,18 @@ class ErrorScreenWidget extends StatefulWidget {
 class _ErrorScreenWidgetState extends State<ErrorScreenWidget>
     with TickerProviderStateMixin {
   late final AnimationController _controller;
+  late bool isLoading;
   @override
   void initState() {
     super.initState();
+    isLoading = false;
     _controller = AnimationController(vsync: this);
+  }
+
+  @override
+  void didUpdateWidget(covariant ErrorScreenWidget oldWidget) {
+    isLoading = false;
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -37,16 +45,38 @@ class _ErrorScreenWidgetState extends State<ErrorScreenWidget>
             ..duration = c.duration
             ..forward()
             ..repeat();
-        }, controller: _controller, height: 150, width: 150)),
-        ElevatedButton(
-            onPressed: widget.onPressed,
-            child: Text(
-              "Try Again",
-              style: GoogleFonts.raleway(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            )),
+        }, controller: _controller, height: 250, width: 250)),
+        Text(
+          "Something went wrong. Please Try again",
+          style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: context.appColorScheme.primary),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        isLoading
+            ? CircularProgressIndicator(
+                color: context.appColorScheme.primary,
+              )
+            : ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        WidgetStatePropertyAll(context.appColorScheme.primary)),
+                onPressed: () {
+                  widget.onPressed?.call();
+                  setState(() {
+                    isLoading = true;
+                  });
+                },
+                child: const Text(
+                  "Retry",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                )),
       ],
     );
   }

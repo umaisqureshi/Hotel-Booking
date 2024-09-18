@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_booking/presentation/extension/context_extension.dart';
 import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
+import 'package:hotel_booking/presentation/module/hotels/components/all_hotels_component.dart';
 import '../../base/screen/stateful_screen.dart';
 
 class HotelsScreen extends StatefulScreen<HotelBloc> {
@@ -16,6 +18,12 @@ class HotelsScreen extends StatefulScreen<HotelBloc> {
 }
 
 class _HotelsScreenState extends ScreenState<HotelBloc> {
+  @override
+  void initState() {
+    context.read<HotelBloc>().add(GetAllHotelsEvent());
+    super.initState();
+  }
+
   @override
   Widget buildScreen(BuildContext context) {
     return Scaffold(
@@ -36,24 +44,6 @@ class _HotelsScreenState extends ScreenState<HotelBloc> {
         ),
         // backgroundColor: Colors.black,
         extendBodyBehindAppBar: true,
-        body: const HotelsScreenView());
-  }
-}
-
-class HotelsScreenView extends StatelessWidget {
-  const HotelsScreenView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.appColorScheme.backgroundColor,
-      body: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Center(child: Text("Hotels screen")),
-        ],
-      ),
-    );
+        body: const GetAllHotelsComponent());
   }
 }
