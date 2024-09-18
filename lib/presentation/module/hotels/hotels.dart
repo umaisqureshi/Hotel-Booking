@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_booking/presentation/extension/context_extension.dart';
 import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
 import '../../base/screen/stateful_screen.dart';
@@ -16,6 +17,12 @@ class HotelsScreen extends StatefulScreen<HotelBloc> {
 }
 
 class _HotelsScreenState extends ScreenState<HotelBloc> {
+  @override
+  void initState() {
+    context.read<HotelBloc>().add(GetAllHotelsEvent());
+    super.initState();
+  }
+
   @override
   Widget buildScreen(BuildContext context) {
     return Scaffold(
