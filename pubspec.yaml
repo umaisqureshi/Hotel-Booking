@@ -53,6 +53,7 @@ dependencies:
   connectivity_plus: ^6.0.4
   animated_toggle_switch: ^0.8.2
   auto_route:
+  uuid:
 
 
 dev_dependencies:

@@ -12,6 +12,10 @@ class HotelApiService extends HotelsDataSource {
   Future<HotelsDto> getAllHotels() async {
     final response =
         await dio.get('https://dkndmolrswy7b.cloudfront.net/hotels.json');
-    return _hotelDtoMapper.mapToData(response.data);
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return _hotelDtoMapper.mapToData(response.data);
+    } else {
+      throw Exception(response.statusMessage);
+    }
   }
 }

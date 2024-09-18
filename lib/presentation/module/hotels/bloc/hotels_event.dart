@@ -7,5 +7,5 @@ abstract class HotelsEvent extends Equatable {
 
 class GetAllHotelsEvent extends HotelsEvent {
   @override
-  List<Object?> get props => [DateTime.now()];
+  List<Object?> get props => [DateTime.now().microsecond];
 }

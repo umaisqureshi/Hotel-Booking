@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-abstract class ErrorWidgetComponent<
+abstract class ErrorWidgetHandlerComponent<
     Bloc extends BlocBase<BlocState>,
     BlocState,
     CurrentState extends BlocState,
     ErrorState extends BlocState> extends StatelessWidget {
-  const ErrorWidgetComponent({Key? key}) : super(key: key);
+  const ErrorWidgetHandlerComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     onInit(context);
     return BlocBuilder<Bloc, BlocState>(
       builder: (_, state) {
-        if (state.runtimeType == CurrentState) {
-          return buildComponent(context, state as CurrentState);
+        if (state is CurrentState) {
+          return buildComponent(context, state);
         }
-        if (state.runtimeType == ErrorState) {
-          return buildError(context, state as ErrorState);
+        if (state is ErrorState) {
+          print("Inside Error State");
+          return buildError(context, state);
         }
         return buildEmpty(context);
       },
@@ -28,11 +29,10 @@ abstract class ErrorWidgetComponent<
   void onInit(BuildContext context) {}
 
   Widget buildComponent(BuildContext context, CurrentState state);
-
   Widget buildEmpty(BuildContext context);
-  Widget buildError(BuildContext context, ErrorState error);
-
+  Widget buildError(BuildContext context, ErrorState errorState);
   bool rebuildCondition(BlocState? previous, BlocState? current) {
-    return current is CurrentState;
+    print("Previous state: $previous, Current state: $current");
+    return current is CurrentState || current is ErrorState;
   }
 }
