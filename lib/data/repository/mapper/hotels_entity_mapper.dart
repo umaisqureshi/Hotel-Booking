@@ -8,6 +8,7 @@ class HotelsEntityMapper extends EntityMapper<HotelEntity, HotelsDto> {
   @override
   HotelEntity mapToEntity(HotelsDto dto) {
     return HotelEntity(
+        hotelCount: dto.hotelCount,
         hotels: dto.hotels
             .map((e) => const HotelsListEntityMapper().mapToEntity(e))
             .toList());

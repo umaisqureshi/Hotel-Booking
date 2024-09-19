@@ -4,73 +4,18 @@ class HotelEntity extends Entity {
   List<Hotel> hotels;
 
   // List<Filter> filters;
-  //int hotelCount;
+  int hotelCount;
   // Meta meta;
   // UsedSearchRequest usedSearchRequest;
 
   HotelEntity({
     //   required this.filters,
-    //  required this.hotelCount,
+   required this.hotelCount,
     //  required this.meta,
     required this.hotels,
     //   required this.usedSearchRequest,
   });
 }
-
-// class Filter extends Entity{
-//   List<FilterAttribute>? attributes;
-//   String category;
-//   bool inUse;
-//   Type type;
-//   Range? range;
-//
-//   Filter({
-//     this.attributes,
-//     required this.category,
-//     required this.inUse,
-//     required this.type,
-//     this.range,
-//   });
-//
-// }
-//
-// class FilterAttribute extends Entity{
-//   String attributeIdentifier;
-//   String attributeValue;
-//   bool inUse;
-//   bool isDisabled;
-//   bool isPopular;
-//   int minPrice;
-//   int resultCount;
-//
-//   FilterAttribute({
-//     required this.attributeIdentifier,
-//     required this.attributeValue,
-//     required this.inUse,
-//     required this.isDisabled,
-//     required this.isPopular,
-//     required this.minPrice,
-//     required this.resultCount,
-//   });
-//
-// }
-//
-// class Range extends Entity {
-//   String max;
-//   String min;
-//   String type;
-//   String selectedMaxValue;
-//   String selectedMinValue;
-//
-//   Range({
-//     required this.max,
-//     required this.min,
-//     required this.type,
-//     required this.selectedMaxValue,
-//     required this.selectedMinValue,
-//   });
-//
-// }
 
 class Hotel extends Entity {
   Analytics? analytics;

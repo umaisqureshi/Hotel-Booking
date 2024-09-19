@@ -27,7 +27,10 @@ class HotelBloc extends BaseBloc<HotelsEvent, HotelsState> {
   _getAllHotels(Emitter<HotelsState> emit) async {
     return _getHotelsUseCase.perform(UseCaseResult(onSuccess: (hotels) {
       blocData = blocData.copyWith(hotels: hotels);
-      emit(HotelsLoadedState(hotels: blocData.hotels?.hotels ?? []));
+      emit(HotelsLoadedState(
+        hotels: blocData.hotels?.hotels ?? [],
+        HotelCount: blocData.hotels?.hotelCount ?? 0,
+      ));
     }, onError: (error) {
       emit(HotelErrorState());
     }));

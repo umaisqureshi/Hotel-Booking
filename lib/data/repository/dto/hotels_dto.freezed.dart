@@ -21,6 +21,7 @@ HotelsDto _$HotelsDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$HotelsDto {
   List<HotelListDto> get hotels => throw _privateConstructorUsedError;
+  int get hotelCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,7 @@ abstract class $HotelsDtoCopyWith<$Res> {
   factory $HotelsDtoCopyWith(HotelsDto value, $Res Function(HotelsDto) then) =
       _$HotelsDtoCopyWithImpl<$Res, HotelsDto>;
   @useResult
-  $Res call({List<HotelListDto> hotels});
+  $Res call({List<HotelListDto> hotels, int hotelCount});
 }
 
 /// @nodoc
@@ -50,12 +51,17 @@ class _$HotelsDtoCopyWithImpl<$Res, $Val extends HotelsDto>
   @override
   $Res call({
     Object? hotels = null,
+    Object? hotelCount = null,
   }) {
     return _then(_value.copyWith(
       hotels: null == hotels
           ? _value.hotels
           : hotels // ignore: cast_nullable_to_non_nullable
               as List<HotelListDto>,
+      hotelCount: null == hotelCount
+          ? _value.hotelCount
+          : hotelCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -68,7 +74,7 @@ abstract class _$$HotelsDtoImplCopyWith<$Res>
       __$$HotelsDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<HotelListDto> hotels});
+  $Res call({List<HotelListDto> hotels, int hotelCount});
 }
 
 /// @nodoc
@@ -83,21 +89,27 @@ class __$$HotelsDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? hotels = null,
+    Object? hotelCount = null,
   }) {
     return _then(_$HotelsDtoImpl(
       hotels: null == hotels
           ? _value._hotels
           : hotels // ignore: cast_nullable_to_non_nullable
               as List<HotelListDto>,
+      hotelCount: null == hotelCount
+          ? _value.hotelCount
+          : hotelCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
 
-@JsonSerializable(fieldRename: FieldRename.snake)
+@JsonSerializable(fieldRename: FieldRename.kebab)
 class _$HotelsDtoImpl implements _HotelsDto {
-  const _$HotelsDtoImpl({required final List<HotelListDto> hotels})
+  const _$HotelsDtoImpl(
+      {required final List<HotelListDto> hotels, required this.hotelCount})
       : _hotels = hotels;
 
   factory _$HotelsDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -112,8 +124,11 @@ class _$HotelsDtoImpl implements _HotelsDto {
   }
 
   @override
+  final int hotelCount;
+
+  @override
   String toString() {
-    return 'HotelsDto(hotels: $hotels)';
+    return 'HotelsDto(hotels: $hotels, hotelCount: $hotelCount)';
   }
 
   @override
@@ -121,13 +136,15 @@ class _$HotelsDtoImpl implements _HotelsDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HotelsDtoImpl &&
-            const DeepCollectionEquality().equals(other._hotels, _hotels));
+            const DeepCollectionEquality().equals(other._hotels, _hotels) &&
+            (identical(other.hotelCount, hotelCount) ||
+                other.hotelCount == hotelCount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_hotels));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_hotels), hotelCount);
 
   @JsonKey(ignore: true)
   @override
@@ -144,14 +161,17 @@ class _$HotelsDtoImpl implements _HotelsDto {
 }
 
 abstract class _HotelsDto implements HotelsDto {
-  const factory _HotelsDto({required final List<HotelListDto> hotels}) =
-      _$HotelsDtoImpl;
+  const factory _HotelsDto(
+      {required final List<HotelListDto> hotels,
+      required final int hotelCount}) = _$HotelsDtoImpl;
 
   factory _HotelsDto.fromJson(Map<String, dynamic> json) =
       _$HotelsDtoImpl.fromJson;
 
   @override
   List<HotelListDto> get hotels;
+  @override
+  int get hotelCount;
   @override
   @JsonKey(ignore: true)
   _$$HotelsDtoImplCopyWith<_$HotelsDtoImpl> get copyWith =>

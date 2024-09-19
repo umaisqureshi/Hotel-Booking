@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
 import 'package:hotel_booking/presentation/module/hotels/widgets/all_hotels_list_widget.dart';
+import 'package:hotel_booking/presentation/module/hotels/widgets/hotel_view_screen.dart';
 import 'package:hotel_booking/presentation/widget/error_widget.dart';
 import 'package:hotel_booking/presentation/base/widget/error_widget_componet.dart';
 import 'package:hotel_booking/presentation/widget/loading_indicator.dart';
@@ -12,7 +13,7 @@ class GetAllHotelsComponent extends ErrorWidgetHandlerComponent<HotelBloc,
 
   @override
   Widget buildComponent(BuildContext context, HotelsLoadedState state) {
-    return HotelListWidget(hotels: state.hotels);
+    return HotelViewScreen(state: state);
   }
 
   @override

@@ -11,11 +11,13 @@ _$HotelsDtoImpl _$$HotelsDtoImplFromJson(Map<String, dynamic> json) =>
       hotels: (json['hotels'] as List<dynamic>)
           .map((e) => HotelListDto.fromJson(e as Map<String, dynamic>))
           .toList(),
+      hotelCount: (json['hotel-count'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$HotelsDtoImplToJson(_$HotelsDtoImpl instance) =>
     <String, dynamic>{
       'hotels': instance.hotels,
+      'hotel-count': instance.hotelCount,
     };
 
 _$HotelListDtoImpl _$$HotelListDtoImplFromJson(Map<String, dynamic> json) =>
