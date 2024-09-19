@@ -5,7 +5,6 @@ part 'hotel_bloc_data.freezed.dart';
 
 @freezed
 class HotelBlocData with _$HotelBlocData {
-  const factory HotelBlocData({
-    HotelEntity? hotels,
-  }) = _HotelBlocData;
+  const factory HotelBlocData(
+      {HotelEntity? hotels}) = _HotelBlocData;
 }

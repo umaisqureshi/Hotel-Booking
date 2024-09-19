@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: ThemeData(
-          useMaterial3: true, textTheme: GoogleFonts.ralewayTextTheme()),
+          useMaterial3: true, textTheme: GoogleFonts.openSansTextTheme()),
       debugShowCheckedModeBanner: false,
       routerConfig: appRouter.config(),
     );

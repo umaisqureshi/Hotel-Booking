@@ -54,6 +54,7 @@ dependencies:
   animated_toggle_switch: ^0.8.2
   auto_route:
   uuid:
+  animated_rating_stars: ^1.0.1
 
 
 dev_dependencies:

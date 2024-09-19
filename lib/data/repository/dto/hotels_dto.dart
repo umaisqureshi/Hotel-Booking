@@ -5,9 +5,10 @@ part 'hotels_dto.g.dart';
 
 @freezed
 class HotelsDto with _$HotelsDto implements Dto {
-  @JsonSerializable(fieldRename: FieldRename.snake)
+  @JsonSerializable(fieldRename: FieldRename.kebab)
   const factory HotelsDto({
     required List<HotelListDto> hotels,
+    required int hotelCount
   }) = _HotelsDto;
   factory HotelsDto.fromJson(Map<String, dynamic> json) =>
       _$HotelsDtoFromJson(json);

@@ -17,7 +17,8 @@ class HotelErrorState extends HotelsState implements NoneEquatableState {
 
 class HotelsLoadedState extends HotelsState {
   final List<Hotel> hotels;
-  const HotelsLoadedState({required this.hotels});
+  final int HotelCount;
+  const HotelsLoadedState({required this.hotels, required this.HotelCount});
   @override
   List<Object?> get props => [hotels];
 }
