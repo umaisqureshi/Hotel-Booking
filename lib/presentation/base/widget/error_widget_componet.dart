@@ -17,7 +17,6 @@ abstract class ErrorWidgetHandlerComponent<
           return buildComponent(context, state);
         }
         if (state is ErrorState) {
-          print("Inside Error State");
           return buildError(context, state);
         }
         return buildEmpty(context);
@@ -32,7 +31,6 @@ abstract class ErrorWidgetHandlerComponent<
   Widget buildEmpty(BuildContext context);
   Widget buildError(BuildContext context, ErrorState errorState);
   bool rebuildCondition(BlocState? previous, BlocState? current) {
-    print("Previous state: $previous, Current state: $current");
     return current is CurrentState || current is ErrorState;
   }
 }

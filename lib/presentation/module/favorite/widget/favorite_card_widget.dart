@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
 import 'package:hotel_booking/presentation/extension/context_extension.dart';
-import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
-import 'package:hotel_booking/presentation/module/hotels/widgets/hotel_detail_widget.dart';
 import 'package:hotel_booking/presentation/widget/animated_rating_widget.dart';
 import 'package:hotel_booking/presentation/widget/botton_widget.dart';
 import 'package:hotel_booking/presentation/widget/cache_network_image.dart';
 
-class HotelCardWidget extends StatelessWidget {
+class FavoriteCardWidget extends StatelessWidget {
   final Hotel hotel;
-  const HotelCardWidget({super.key, required this.hotel});
+  const FavoriteCardWidget({super.key, required this.hotel});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
       child: Container(
-        height: MediaQuery.sizeOf(context).height * 0.51,
+        height: MediaQuery.sizeOf(context).height * 0.45,
         width: MediaQuery.sizeOf(context).width * 0.9,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
@@ -96,19 +93,11 @@ class HotelCardWidget extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            HotelDetailWidget(hotel: hotel),
-            const SizedBox(
-              height: 10,
-            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: ButtonWidget(
-                text: "Add to Favorite",
-                onPress: () {
-                  context
-                      .read<HotelBloc>()
-                      .add(AddToFavoriteEvent(hotel: hotel));
-                },
+                text: "To the hotel",
+                onPress: () {},
               ),
             )
           ],

@@ -1,53 +1,58 @@
 import 'package:hotel_booking/domain/base/entity.dart';
+import 'package:hive/hive.dart';
+part 'hotel_entity.g.dart';
 
 class HotelEntity extends Entity {
   List<Hotel> hotels;
-
-  // List<Filter> filters;
   int hotelCount;
-  // Meta meta;
-  // UsedSearchRequest usedSearchRequest;
 
   HotelEntity({
-    //   required this.filters,
-   required this.hotelCount,
-    //  required this.meta,
+    required this.hotelCount,
     required this.hotels,
-    //   required this.usedSearchRequest,
   });
 }
 
-class Hotel extends Entity {
+@HiveType(typeId: 0)
+class Hotel extends HiveObject implements Entity {
+  @HiveField(0)
   Analytics? analytics;
-//  List<dynamic> badges;
+
+  @HiveField(1)
   BestOffer? bestOffer;
+
+  @HiveField(2)
   int? category;
-  // CategoryType categoryType;
+
+  @HiveField(3)
   String? destination;
+
+  @HiveField(4)
   String? hotelId;
+
+  @HiveField(5)
   List<Image>? images;
-  // double latitude;
-  // double longitude;
+
+  @HiveField(6)
   String? name;
+
+  @HiveField(7)
   RatingInfo? ratingInfo;
 
   Hotel({
     required this.analytics,
-    //  required this.badges,
     required this.bestOffer,
     required this.category,
-    // required this.categoryType,
     required this.destination,
     required this.hotelId,
     required this.images,
-    //  required this.latitude,
-    //  required this.longitude,
     required this.name,
     required this.ratingInfo,
   });
 }
 
-class Analytics extends Entity {
+@HiveType(typeId: 1)
+class Analytics extends HiveObject implements Entity {
+  @HiveField(0)
   SelectItemItem0? selectItemItem0;
 
   Analytics({
@@ -55,15 +60,33 @@ class Analytics extends Entity {
   });
 }
 
-class SelectItemItem0 extends Entity {
+@HiveType(typeId: 2)
+class SelectItemItem0 extends HiveObject implements Entity {
+  @HiveField(0)
   String? currency;
+
+  @HiveField(1)
   String? itemCategory;
+
+  @HiveField(2)
   String? itemCategory2;
+
+  @HiveField(3)
   String? itemId;
+
+  @HiveField(4)
   String? itemListName;
+
+  @HiveField(5)
   String? itemName;
+
+  @HiveField(6)
   String? itemRooms;
+
+  @HiveField(7)
   String? price;
+
+  @HiveField(8)
   String? quantity;
 
   SelectItemItem0({
@@ -79,21 +102,33 @@ class SelectItemItem0 extends Entity {
   });
 }
 
-class BestOffer extends Entity {
-  // dynamic appliedTravelDiscount;
-  // List<dynamic> detailedPricePerPerson;
+@HiveType(typeId: 3)
+class BestOffer extends HiveObject implements Entity {
+  @HiveField(0)
   int? includedTravelDiscount;
+
+  @HiveField(1)
   int? originalTravelPrice;
+
+  @HiveField(2)
   int? simplePricePerPerson;
+
+  @HiveField(3)
   int? total;
+
+  @HiveField(4)
   int? travelPrice;
+
+  @HiveField(5)
   bool? flightIncluded;
+
+  @HiveField(6)
   Rooms? rooms;
+
+  @HiveField(7)
   TravelDate? travelDate;
 
   BestOffer({
-    //  required this.appliedTravelDiscount,
-    //  required this.detailedPricePerPerson,
     required this.includedTravelDiscount,
     required this.originalTravelPrice,
     required this.simplePricePerPerson,
@@ -105,33 +140,47 @@ class BestOffer extends Entity {
   });
 }
 
-class Rooms extends Entity {
+@HiveType(typeId: 4)
+class Rooms extends HiveObject implements Entity {
+  @HiveField(0)
   Overall? overall;
+
+  @HiveField(1)
   List<PricesAndOccupancy>? pricesAndOccupancy;
-  // List<RoomGroup> roomGroups;
 
   Rooms({
     required this.overall,
     required this.pricesAndOccupancy,
-    // required this.roomGroups,
   });
 }
 
-class Overall extends Entity {
+@HiveType(typeId: 5)
+class Overall extends HiveObject implements Entity {
+  @HiveField(0)
   String? boarding;
+
+  @HiveField(1)
   String? name;
+
+  @HiveField(2)
   int? adultCount;
-  // List<dynamic> childrenAges;
+
+  @HiveField(3)
   int? childrenCount;
+
+  @HiveField(4)
   int? quantity;
+
+  @HiveField(5)
   bool? sameBoarding;
+
+  @HiveField(6)
   bool? sameRoomGroups;
 
   Overall({
     required this.boarding,
     required this.name,
     required this.adultCount,
-    //   required this.childrenAges,
     required this.childrenCount,
     required this.quantity,
     required this.sameBoarding,
@@ -139,77 +188,52 @@ class Overall extends Entity {
   });
 }
 
-// class OverallAttribute extends Entity {
-//   Id id;
-//   Name name;
-//   dynamic value;
-//   bool isUnique;
-//
-//   OverallAttribute({
-//     required this.id,
-//     required this.name,
-//     required this.value,
-//     required this.isUnique,
-//   });
-//
-// }
-
-class PricesAndOccupancy extends Entity {
+@HiveType(typeId: 6)
+class PricesAndOccupancy extends HiveObject implements Entity {
+  @HiveField(0)
   int? adultCount;
-  // List<dynamic> childrenAges;
+
+  @HiveField(1)
   int? childrenCount;
-  // List<dynamic> detailedPricePerPerson;
+
+  @HiveField(2)
   String? groupIdentifier;
+
+  @HiveField(3)
   int? simplePricePerPerson;
+
+  @HiveField(4)
   int? total;
 
   PricesAndOccupancy({
     required this.adultCount,
-    //   required this.childrenAges,
     required this.childrenCount,
-    //   required this.detailedPricePerPerson,
     required this.groupIdentifier,
     required this.simplePricePerPerson,
     required this.total,
   });
 }
 
-// class RoomGroup extends Entity {
-//  // List<OverallAttribute> attributes;
-//   String boarding;
-//   String name;
-//   String? detailedDescription;
-//   String groupIdentifier;
-//   int quantity;
-//
-//   RoomGroup({
-//    // required this.attributes,
-//     required this.boarding,
-//     required this.name,
-//     required this.detailedDescription,
-//     required this.groupIdentifier,
-//     required this.quantity,
-//   });
-//
-// }
-
-class TravelDate extends Entity {
+@HiveType(typeId: 7)
+class TravelDate extends HiveObject implements Entity {
+  @HiveField(0)
   int? days;
-  int? nights;
-//  DateTime departureDate;
 
-//  DateTime returnDate;
+  @HiveField(1)
+  int? nights;
 
   TravelDate({
     required this.days,
-//    required this.departureDate,
     required this.nights,
-//    required this.returnDate,
   });
 }
 
-class Image extends Entity {
+@HiveType(typeId: 8)
+class Image extends HiveObject implements Entity {
+  @HiveField(0)
   String? large;
+
+  @HiveField(1)
   String? small;
 
   Image({
@@ -218,10 +242,18 @@ class Image extends Entity {
   });
 }
 
-class RatingInfo extends Entity {
+@HiveType(typeId: 9)
+class RatingInfo extends HiveObject implements Entity {
+  @HiveField(0)
   int? recommendationRate;
+
+  @HiveField(1)
   int? reviewsCount;
+
+  @HiveField(2)
   double? score;
+
+  @HiveField(3)
   String? scoreDescription;
 
   RatingInfo({
@@ -232,118 +264,158 @@ class RatingInfo extends Entity {
   });
 }
 
-// class Meta extends Entity {
-//   Agent agent;
-//   int count;
-//   List<ScarcityElement> scarcityElements;
+// class Hotel extends Entity {
+//   Analytics? analytics;
+//   BestOffer? bestOffer;
+//   int? category;
+//   String? destination;
+//   String? hotelId;
+//   List<Image>? images;
+//   String? name;
+//   RatingInfo? ratingInfo;
 //
-//   Meta({
-//     required this.agent,
-//     required this.count,
-//     required this.scarcityElements,
-//   });
-//
-// }
-
-// class Agent extends Entity {
-//   String availability;
-//   Image image;
-//   String name;
-//   String telephone;
-//   String text;
-//   String vita;
-//
-//   Agent({
-//     required this.availability,
-//     required this.image,
-//     required this.name,
-//     required this.telephone,
-//     required this.text,
-//     required this.vita,
-//   });
-//
-// }
-//
-// class ScarcityElement extends Entity {
-//   String type;
-//
-//   ScarcityElement({
-//     required this.type,
-//   });
-//
-// }
-
-// class UsedSearchRequest extends Entity {
-//   String attributes;
-//   String departureAirports;
-//   DateTime departureDate;
-//   DurationRangeClass durationRange;
-//   DurationRangeClass priceRange;
-//   DateTime returnDate;
-//   List<Room> rooms;
-//   String travelType;
-//   String destination;
-//   String sort;
-//   dynamic destinationName;
-//   int limit;
-//   int offset;
-//
-//   UsedSearchRequest({
-//     required this.attributes,
-//     required this.departureAirports,
-//     required this.departureDate,
-//     required this.durationRange,
-//     required this.priceRange,
-//     required this.returnDate,
-//     required this.rooms,
-//     required this.travelType,
+//   Hotel({
+//     required this.analytics,
+//     required this.bestOffer,
+//     required this.category,
 //     required this.destination,
-//     required this.sort,
-//     required this.destinationName,
-//     required this.limit,
-//     required this.offset,
+//     required this.hotelId,
+//     required this.images,
+//     required this.name,
+//     required this.ratingInfo,
 //   });
-//
 // }
 //
-// class DurationRangeClass extends Entity {
-//   String? max;
-//   String? min;
+// class Analytics extends Entity {
+//   SelectItemItem0? selectItemItem0;
 //
-//   DurationRangeClass({
-//     required this.max,
-//     required this.min,
+//   Analytics({
+//     required this.selectItemItem0,
 //   });
-//
 // }
-
-// class Room extends Entity {
-//   int adultCount;
-//   List<dynamic> childrenAges;
 //
-//   Room({
+// class SelectItemItem0 extends Entity {
+//   String? currency;
+//   String? itemCategory;
+//   String? itemCategory2;
+//   String? itemId;
+//   String? itemListName;
+//   String? itemName;
+//   String? itemRooms;
+//   String? price;
+//   String? quantity;
+//
+//   SelectItemItem0({
+//     required this.currency,
+//     required this.itemCategory,
+//     required this.itemCategory2,
+//     required this.itemId,
+//     required this.itemListName,
+//     required this.itemName,
+//     required this.itemRooms,
+//     required this.price,
+//     required this.quantity,
+//   });
+// }
+//
+// class BestOffer extends Entity {
+//   int? includedTravelDiscount;
+//   int? originalTravelPrice;
+//   int? simplePricePerPerson;
+//   int? total;
+//   int? travelPrice;
+//   bool? flightIncluded;
+//   Rooms? rooms;
+//   TravelDate? travelDate;
+//
+//   BestOffer({
+//     required this.includedTravelDiscount,
+//     required this.originalTravelPrice,
+//     required this.simplePricePerPerson,
+//     required this.total,
+//     required this.travelPrice,
+//     required this.flightIncluded,
+//     required this.rooms,
+//     required this.travelDate,
+//   });
+// }
+//
+// class Rooms extends Entity {
+//   Overall? overall;
+//   List<PricesAndOccupancy>? pricesAndOccupancy;
+//
+//   Rooms({
+//     required this.overall,
+//     required this.pricesAndOccupancy,
+//   });
+// }
+//
+// class Overall extends Entity {
+//   String? boarding;
+//   String? name;
+//   int? adultCount;
+//   int? childrenCount;
+//   int? quantity;
+//   bool? sameBoarding;
+//   bool? sameRoomGroups;
+//
+//   Overall({
+//     required this.boarding,
+//     required this.name,
 //     required this.adultCount,
-//     required this.childrenAges,
+//     required this.childrenCount,
+//     required this.quantity,
+//     required this.sameBoarding,
+//     required this.sameRoomGroups,
 //   });
-//
-// }
-
-// enum Id {
-//   IT05_BT_BA,
-//   IT05_BT_BT
-// }
-// enum Name {
-//   BALKON,
-//   BALKON_TERRASSE
 // }
 //
-// enum AvailableSpecialGroup  {
-//   FLEXIBLE,
-//   PROMOTION
+// class PricesAndOccupancy extends Entity {
+//   int? adultCount;
+//   int? childrenCount;
+//   String? groupIdentifier;
+//   int? simplePricePerPerson;
+//   int? total;
+//
+//   PricesAndOccupancy({
+//     required this.adultCount,
+//     required this.childrenCount,
+//     required this.groupIdentifier,
+//     required this.simplePricePerPerson,
+//     required this.total,
+//   });
 // }
 //
-// enum Type {
-//   CHECKBOX,
-//   RADIO,
-//   RANGE
+// class TravelDate extends Entity {
+//   int? days;
+//   int? nights;
+//
+//   TravelDate({
+//     required this.days,
+//     required this.nights,
+//   });
+// }
+//
+// class Image extends Entity {
+//   String? large;
+//   String? small;
+//
+//   Image({
+//     required this.large,
+//     required this.small,
+//   });
+// }
+//
+// class RatingInfo extends Entity {
+//   int? recommendationRate;
+//   int? reviewsCount;
+//   double? score;
+//   String? scoreDescription;
+//
+//   RatingInfo({
+//     required this.recommendationRate,
+//     required this.reviewsCount,
+//     required this.score,
+//     required this.scoreDescription,
+//   });
 // }
