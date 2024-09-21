@@ -1,4 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hotel_booking/data/exception/exception.dart';
 import 'package:hotel_booking/data/repository/hotels_local_datasource.dart';
 import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
 import 'package:injectable/injectable.dart';
@@ -8,7 +9,11 @@ class LocalDatabaseService extends HotelsLocalDatasource {
   var box = Hive.box<Hotel>("FavoriteBox");
   @override
   void addToLocal(Hotel hotel) async {
-    box.put(hotel.hotelId, hotel);
+    if (box.containsKey(hotel.hotelId)) {
+      throw AlreadyExistException(message: "Already in favorites");
+    } else {
+      box.put(hotel.hotelId, hotel);
+    }
   }
 
   @override
@@ -18,7 +23,7 @@ class LocalDatabaseService extends HotelsLocalDatasource {
   }
 
   @override
-  void removeFromLocal(int hotelId) {
+  void removeFromLocal(String hotelId) {
     if (box.containsKey(hotelId)) {
       box.delete(hotelId);
     }

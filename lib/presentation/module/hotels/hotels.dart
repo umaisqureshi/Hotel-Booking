@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_booking/presentation/extension/context_extension.dart';
 import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
 import 'package:hotel_booking/presentation/module/hotels/components/all_hotels_component.dart';
+import 'package:hotel_booking/presentation/utils/app_alerts.dart';
 import '../../base/screen/stateful_screen.dart';
 
 class HotelsScreen extends StatefulScreen<HotelBloc> {
@@ -18,6 +19,7 @@ class HotelsScreen extends StatefulScreen<HotelBloc> {
 }
 
 class _HotelsScreenState extends ScreenState<HotelBloc> {
+  final AppAlerts alerts = AppAlerts();
   @override
   void initState() {
     context.read<HotelBloc>().add(GetAllHotelsEvent());
@@ -42,8 +44,18 @@ class _HotelsScreenState extends ScreenState<HotelBloc> {
             statusBarBrightness: Brightness.dark,
           ),
         ),
-        // backgroundColor: Colors.black,
         extendBodyBehindAppBar: true,
         body: const GetAllHotelsComponent());
+  }
+
+  @override
+  void onListenableState(BuildContext context, Object? state) {
+    super.onListenableState(context, state);
+    if (state is HotelAlreadyExistState) {
+      alerts.showSnackBar(context, "Already in Favorites");
+    }
+    if (state is HotelAddedSuccessfullyState) {
+      alerts.showSnackBar(context, "Successfully added to Favorites");
+    }
   }
 }

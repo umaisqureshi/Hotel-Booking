@@ -7,7 +7,7 @@ import 'package:hotel_booking/presentation/module/favorite/widget/favorite_card_
 import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 
 class FavoriteListWidget extends StatefulWidget {
-  final List<Hotel> hotels;
+  final Iterable<Hotel> hotels;
   const FavoriteListWidget({super.key, required this.hotels});
 
   @override
@@ -38,7 +38,7 @@ class _FavoriteListWidgetState extends State<FavoriteListWidget> {
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return FavoriteCardWidget(
-              hotel: widget.hotels[index],
+              hotel: widget.hotels.toList()[index],
             );
           }),
     );

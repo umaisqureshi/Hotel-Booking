@@ -13,7 +13,7 @@ class GetAllFavoritesComponent extends ErrorWidgetHandlerComponent<FavoriteBloc,
   @override
   Widget buildComponent(BuildContext context, GetAllFavoriteState state) {
     return FavoriteListWidget(
-      hotels: state.favorites,
+      hotels: state.favorites.reversed,
     );
   }
 

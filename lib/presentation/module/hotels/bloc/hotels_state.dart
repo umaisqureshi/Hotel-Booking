@@ -10,6 +10,17 @@ class HotelsInitial extends HotelsState {
   List<Object?> get props => [];
 }
 
+class HotelAlreadyExistState extends HotelsState implements ListenableState {
+  @override
+  List<Object?> get props => [DateTime.now().microsecond];
+}
+
+class HotelAddedSuccessfullyState extends HotelsState
+    implements ListenableState {
+  @override
+  List<Object?> get props => [DateTime.now().microsecond];
+}
+
 class HotelErrorState extends HotelsState implements NoneEquatableState {
   @override
   List<Object?> get props => [DateTime.now().microsecond];

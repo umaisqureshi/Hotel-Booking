@@ -19,3 +19,17 @@ class FavoriteErrorState extends FavoriteState {
   @override
   List<Object?> get props => [DateTime.now().microsecond];
 }
+
+class FavoriteRemovedConfirmationState extends FavoriteState
+    implements ListenableState {
+  final String hotelId;
+  FavoriteRemovedConfirmationState({required this.hotelId});
+  @override
+  List<Object?> get props => [DateTime.now().microsecond];
+}
+
+class FavoriteSuccessfullyRemovedState extends FavoriteState
+    implements ListenableState {
+  @override
+  List<Object?> get props => [DateTime.now().microsecond];
+}

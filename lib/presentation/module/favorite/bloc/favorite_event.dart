@@ -6,8 +6,16 @@ abstract class FavoriteEvent extends Equatable {
 }
 
 class RemoveFavoriteEvent extends FavoriteEvent implements NoneEquatableState {
-  final int hotelId;
+  final String hotelId;
   const RemoveFavoriteEvent({required this.hotelId});
+  @override
+  List<Object?> get props => [hotelId];
+}
+
+class RemoveConfirmationEvent extends FavoriteEvent
+    implements ListenableState, NoneEquatableState {
+  final String hotelId;
+  const RemoveConfirmationEvent({required this.hotelId});
   @override
   List<Object?> get props => [hotelId];
 }

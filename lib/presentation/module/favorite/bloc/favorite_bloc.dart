@@ -6,6 +6,7 @@ import 'package:hotel_booking/domain/favorite/get/get_all_favorites_use_case.dar
 import 'package:hotel_booking/domain/favorite/remove/remove_favorite_use_case.dart';
 import 'package:hotel_booking/domain/favorite/remove/remove_request.dart';
 import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
+import 'package:hotel_booking/presentation/base/state/listenable_state.dart';
 import 'package:hotel_booking/presentation/base/state/none_equatable_state.dart';
 import 'package:hotel_booking/presentation/module/favorite/bloc/blocdata/favorite_bloc_data.dart';
 import 'package:injectable/injectable.dart';
@@ -28,6 +29,10 @@ class FavoriteBloc extends BaseBloc<FavoriteEvent, FavoriteState> {
       await _getAllFavorite(emit);
     });
 
+    on<RemoveConfirmationEvent>((event, emit) async {
+      emit(FavoriteRemovedConfirmationState(hotelId: event.hotelId));
+    });
+
     on<RemoveFavoriteEvent>((event, emit) async {
       await _removeFavorite(event.hotelId, emit);
     });
@@ -42,10 +47,19 @@ class FavoriteBloc extends BaseBloc<FavoriteEvent, FavoriteState> {
     }));
   }
 
-  _removeFavorite(int hotelId, Emitter<FavoriteState> emit) async {
+  _removeFavorite(String hotelId, Emitter<FavoriteState> emit) async {
     final RemoveFavoriteRequest request =
         RemoveFavoriteRequest(hotelId: hotelId);
     return _removeFavoriteUseCase.perform(
-        request, UseCaseResult(onError: (error) {}, onFinished: () {}));
+        request,
+        UseCaseResult(onError: (error) {
+          print(error.toString());
+        }, onFinished: () {
+          Set<Hotel> hotels = blocData.hotels!.toSet();
+          hotels.removeWhere((e) => e.hotelId == hotelId);
+          blocData = blocData.copyWith(hotels: hotels.toList());
+          emit(GetAllFavoriteState(favorites: blocData.hotels ?? []));
+          emit(FavoriteSuccessfullyRemovedState());
+        }));
   }
 }
