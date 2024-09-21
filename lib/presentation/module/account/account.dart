@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hotel_booking/presentation/extension/context_extension.dart';
 import 'package:hotel_booking/presentation/module/account/bloc/account_bloc.dart';
+import 'package:hotel_booking/presentation/module/account/widget/account_view_widget.dart';
 import '../../base/screen/stateful_screen.dart';
 
 class AccountScreen extends StatefulScreen<AccountBloc> {
@@ -22,7 +24,7 @@ class _AccountScreenState extends ScreenState<AccountBloc> {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Account",
+            "Account".tr(),
             style: TextStyle(
                 fontSize: 16,
                 color: context.appColorScheme.backgroundColor,
@@ -34,26 +36,8 @@ class _AccountScreenState extends ScreenState<AccountBloc> {
             statusBarBrightness: Brightness.dark,
           ),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: context.appColorScheme.backgroundColor,
         extendBodyBehindAppBar: true,
         body: const AccountScreenView());
-  }
-}
-
-class AccountScreenView extends StatelessWidget {
-  const AccountScreenView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.appColorScheme.backgroundColor,
-      body: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Center(child: Text("Account screen")),
-        ],
-      ),
-    );
   }
 }

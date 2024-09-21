@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -107,14 +108,21 @@ class FavoriteCardWidget extends StatelessWidget {
                                 ),
                                 TextSpan(
                                   text:
-                                      " (${hotel.ratingInfo?.reviewsCount ?? 0})",
+                                      " (${hotel.ratingInfo?.reviewsCount ?? 0} ",
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight
+                                        .w400, // Make review count slightly less bold
+                                  ),
+                                ),
+                                 TextSpan(
+                                  text: "reviews".tr(),
                                   style: const TextStyle(
                                     fontWeight: FontWeight
                                         .w400, // Make review count slightly less bold
                                   ),
                                 ),
                                 const TextSpan(
-                                  text: " reviews)",
+                                  text: ")",
                                   style: TextStyle(
                                     fontWeight: FontWeight
                                         .w400, // Make review count slightly less bold
@@ -181,7 +189,7 @@ class FavoriteCardWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: ButtonWidget(
-                text: "To the hotel",
+                text: "To the hotel".tr(),
                 onPress: () {},
               ),
             )

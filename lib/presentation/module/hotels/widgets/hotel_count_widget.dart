@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class HotelCountWidget extends StatelessWidget {
@@ -14,13 +15,23 @@ class HotelCountWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Container(
         constraints: const BoxConstraints(maxWidth: 200),
-        child: Text(
-          "$count hotels for Mallorca",
+        child: RichText(
           overflow: TextOverflow.ellipsis,
-          style: const TextStyle(
+          text: TextSpan(
+            style: const TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 18,
-              color: Color(0xff222222)),
+              color: Color(0xff222222),
+            ),
+            children: [
+              TextSpan(
+                text: "$count ",
+              ),
+              TextSpan(
+                text: "hotels for Mallorca".tr(),
+              ),
+            ],
+          ),
         ),
       ),
     );

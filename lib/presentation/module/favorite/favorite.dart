@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,7 @@ class _FavoriteScreenState extends ScreenState<FavoriteBloc> {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Favorite",
+            "Favorites".tr(),
             style: TextStyle(
                 fontSize: 16,
                 color: context.appColorScheme.backgroundColor,
@@ -53,16 +54,16 @@ class _FavoriteScreenState extends ScreenState<FavoriteBloc> {
   void onListenableState(BuildContext context, Object? state) {
     super.onListenableState(context, state);
     if (state is FavoriteSuccessfullyRemovedState) {
-      alerts.showSnackBar(context, "Successfully removed from Favorites");
+      alerts.showSnackBar(context, "Successfully removed from Favorites".tr());
     }
     if (state is FavoriteRemovedConfirmationState) {
       alerts.showAlertDialog(
-          context, "Do you really want to remove it from favorites?", () {
+          context, "Do you really want to remove it from favorites?".tr(), () {
         context
             .read<FavoriteBloc>()
             .add(RemoveFavoriteEvent(hotelId: state.hotelId));
         Navigator.of(context).pop();
-      }, "Remove");
+      }, "Remove".tr());
     }
   }
 }

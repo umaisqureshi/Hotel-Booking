@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_booking/presentation/extension/context_extension.dart';
 
@@ -22,14 +23,15 @@ class AppAlerts {
         )));
   }
 
-  showAlertDialog(BuildContext context, String message, VoidCallback onPress , String buttonText) {
+  showAlertDialog(BuildContext context, String message, VoidCallback onPress,
+      String buttonText) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text(
-            "Remove",
-            style: TextStyle(
+          title: Text(
+            buttonText,
+            style: const TextStyle(
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -39,11 +41,11 @@ class AppAlerts {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Cancel'),
+              child: Text('Cancel'.tr()),
             ),
             ElevatedButton(
               onPressed: onPress,
-              child:  Text(buttonText),
+              child: Text(buttonText),
             ),
           ],
         );

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_booking/presentation/extension/context_extension.dart';
 import 'package:lottie/lottie.dart';
@@ -47,9 +48,9 @@ class _ErrorScreenWidgetState extends State<ErrorScreenWidget>
             ..repeat();
         }, controller: _controller, height: 250, width: 250)),
         Text(
-          "Something went wrong. Please Try again",
+          "Something went wrong. Please Try again".tr(),
           style: TextStyle(
-              fontSize: 14,
+              fontSize: 13,
               fontWeight: FontWeight.bold,
               color: context.appColorScheme.primary),
         ),
@@ -70,9 +71,9 @@ class _ErrorScreenWidgetState extends State<ErrorScreenWidget>
                     isLoading = true;
                   });
                 },
-                child: const Text(
-                  "Retry",
-                  style: TextStyle(
+                child:  Text(
+                  "Retry".tr(),
+                  style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),

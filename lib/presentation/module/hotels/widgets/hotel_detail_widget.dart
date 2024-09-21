@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
 
@@ -20,13 +21,29 @@ class HotelDetailWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "${hotel.bestOffer?.travelDate?.days ?? 0} Days | ${hotel.bestOffer?.travelDate?.nights ?? 0} Nights",
+              RichText(
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
+                text: TextSpan(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 12,
-                    color: Color(0xff222222)),
+                    color: Color(0xff222222),
+                  ),
+                  children: [
+                    TextSpan(
+                      text: "${hotel.bestOffer?.travelDate?.days ?? 0} ",
+                    ),
+                    TextSpan(
+                      text: "Days".tr(),
+                    ),
+                    TextSpan(
+                      text: " | ${hotel.bestOffer?.travelDate?.nights ?? 0} ",
+                    ),
+                    TextSpan(
+                      text: "Nights".tr(),
+                    ),
+                  ],
+                ),
               ),
               Container(
                 constraints: const BoxConstraints(maxWidth: 200),
@@ -53,25 +70,26 @@ class HotelDetailWidget extends StatelessWidget {
                       children: [
                         TextSpan(
                           text:
-                              "${hotel.bestOffer?.rooms?.overall?.adultCount ?? 0} Adults",
-                          style: const TextStyle(
-                              // You can set a different style for "Adults, " if desired
-                              ),
+                              "${hotel.bestOffer?.rooms?.overall?.adultCount ?? 0} ",
+                        ),
+                        TextSpan(
+                          text: "Adults".tr(),
                         ),
                         if (hotel.bestOffer?.rooms?.overall?.childrenCount != 0)
                           TextSpan(
                             text:
-                                ", ${hotel.bestOffer?.rooms?.overall?.childrenCount ?? 0} Children",
-                            style: const TextStyle(
-                                // You can set a different style for "Children" if desired
-                                ),
+                                ", ${hotel.bestOffer?.rooms?.overall?.childrenCount ?? 0} , ",
+                          ),
+                        if (hotel.bestOffer?.rooms?.overall?.childrenCount != 0)
+                          TextSpan(
+                            text: "Children".tr(),
                           ),
                       ],
                     ),
                   ),
                   if (hotel.bestOffer?.flightIncluded ?? false)
-                    const Text(
-                      " | Flight included",
+                    Text(
+                      " | Flight included".tr(),
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                           fontWeight: FontWeight.w400,
@@ -93,11 +111,11 @@ class HotelDetailWidget extends StatelessWidget {
                     color: Color(0xff222222),
                   ),
                   children: [
-                    const TextSpan(
-                      text: "from ",
+                    TextSpan(
+                      text: "from".tr(),
                     ),
                     TextSpan(
-                      text: "${hotel.analytics?.selectItemItem0?.price ?? 0}",
+                      text: " ${hotel.analytics?.selectItemItem0?.price ?? 0}",
                       style: const TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 20 // Make price bold for emphasis
@@ -105,7 +123,7 @@ class HotelDetailWidget extends StatelessWidget {
                     ),
                     TextSpan(
                       text:
-                          " ${hotel.analytics?.selectItemItem0?.currency ?? "€"}",
+                          "${hotel.analytics?.selectItemItem0?.currency?.tr()}",
                     ),
                   ],
                 ),

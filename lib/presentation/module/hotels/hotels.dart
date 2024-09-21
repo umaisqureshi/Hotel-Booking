@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,7 @@ class _HotelsScreenState extends ScreenState<HotelBloc> {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Hotels",
+            "Hotels".tr(),
             style: TextStyle(
                 fontSize: 16,
                 color: context.appColorScheme.backgroundColor,
@@ -52,10 +53,10 @@ class _HotelsScreenState extends ScreenState<HotelBloc> {
   void onListenableState(BuildContext context, Object? state) {
     super.onListenableState(context, state);
     if (state is HotelAlreadyExistState) {
-      alerts.showSnackBar(context, "Already in Favorites");
+      alerts.showSnackBar(context, "Already in Favorites".tr());
     }
     if (state is HotelAddedSuccessfullyState) {
-      alerts.showSnackBar(context, "Successfully added to Favorites");
+      alerts.showSnackBar(context, "Successfully added to Favorites".tr());
     }
   }
 }
