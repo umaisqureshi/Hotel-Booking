@@ -1,6 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
 import 'package:hotel_booking/presentation/extension/context_extension.dart';
+import 'package:hotel_booking/presentation/module/favorite/bloc/favorite_bloc.dart';
+import 'package:hotel_booking/presentation/module/favorite/widget/rating_count_widget.dart';
 import 'package:hotel_booking/presentation/widget/animated_rating_widget.dart';
 import 'package:hotel_booking/presentation/widget/botton_widget.dart';
 import 'package:hotel_booking/presentation/widget/cache_network_image.dart';
@@ -41,14 +46,41 @@ class FavoriteCardWidget extends StatelessWidget {
                       topRight: Radius.circular(5)),
                   color: context.appColorScheme.primary,
                   shape: BoxShape.rectangle),
-              child: cachedNetworkImage(hotel.images?.first.large ?? "", 5.0),
+              child: Stack(
+                children: [
+                  cachedNetworkImage(hotel.images?.first.large ?? "", 5.0),
+                  Positioned(
+                      right: 10,
+                      top: 10,
+                      child: InkWell(
+                        onTap: () {
+                          context.read<FavoriteBloc>().add(
+                              RemoveConfirmationEvent(hotelId: hotel.hotelId!));
+                        },
+                        child: const Icon(
+                          Icons.favorite,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      )),
+                  RatingCountWidget(hotel: hotel),
+                ],
+              ),
             ),
             const SizedBox(
               height: 10,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: animatedRatingStars(hotel.ratingInfo?.score ?? 0.0),
+              child: Row(
+                children: [
+                  animatedRatingStars(hotel.ratingInfo?.score ?? 0.0),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  SvgPicture.asset('assets/images/svg/info.svg'),
+                ],
+              ),
             ),
             Padding(
               padding:
@@ -96,7 +128,7 @@ class FavoriteCardWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: ButtonWidget(
-                text: "To the hotel",
+                text: "To the hotel".tr(),
                 onPress: () {},
               ),
             )

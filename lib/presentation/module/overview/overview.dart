@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hotel_booking/presentation/extension/context_extension.dart';
@@ -22,7 +23,7 @@ class _OverViewScreenState extends ScreenState<OverviewBloc> {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Overview",
+            "Overview".tr(),
             style: TextStyle(
                 fontSize: 16,
                 color: context.appColorScheme.backgroundColor,

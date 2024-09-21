@@ -3,11 +3,13 @@ import 'dart:developer';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_booking/data/exception/exception.dart';
 import 'package:hotel_booking/domain/base/use_case_result.dart';
 import 'package:hotel_booking/domain/favorite/add/add_favorite_use_case.dart';
 import 'package:hotel_booking/domain/favorite/add/favorite_request.dart';
 import 'package:hotel_booking/domain/hotels/get_hotels_use_case.dart';
 import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
+import 'package:hotel_booking/presentation/base/state/listenable_state.dart';
 import 'package:hotel_booking/presentation/base/state/none_equatable_state.dart';
 import 'package:hotel_booking/presentation/module/hotels/bloc/blocdata/hotel_bloc_data.dart';
 import 'package:injectable/injectable.dart';
@@ -39,11 +41,15 @@ class HotelBloc extends BaseBloc<HotelsEvent, HotelsState> {
     final FavoriteRequest request = FavoriteRequest(hotel: hotel);
     return _addToFavoriteUseCase.perform(
         request,
-        UseCaseResult(
-            onError: (error) {},
-            onFinished: () {
-              print("Successfully added");
-            }));
+        UseCaseResult(onError: (error) {
+          if (error is AlreadyExistException) {
+            emit(HotelAlreadyExistState());
+          } else {
+            print(error.toString());
+          }
+        }, onFinished: () {
+          emit(HotelAddedSuccessfullyState());
+        }));
   }
 
   _getAllHotels(Emitter<HotelsState> emit) async {

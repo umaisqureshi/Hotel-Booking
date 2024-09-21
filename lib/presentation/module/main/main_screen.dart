@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_booking/infrastucture/routing/app_router.gr.dart';
 import 'package:hotel_booking/presentation/extension/context_extension.dart';
@@ -33,31 +34,31 @@ class _MainScreenState extends State<MainScreen> {
               onTap: (index) {
                 tabRouter.setActiveIndex(index);
               },
-              items: const [
+              items: [
                 BottomNavigationBarItem(
-                    icon: Padding(
+                    icon: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: Icon(Icons.home),
                     ),
-                    label: "Overview"),
+                    label: "Overview".tr()),
                 BottomNavigationBarItem(
-                    icon: Padding(
+                    icon: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: Icon(Icons.search),
                     ),
-                    label: "Hotel"),
+                    label: "Hotels".tr()),
                 BottomNavigationBarItem(
-                    icon: Padding(
+                    icon: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: Icon(Icons.favorite_border),
                     ),
-                    label: "Favorite"),
+                    label: "Favorites".tr()),
                 BottomNavigationBarItem(
-                    icon: Padding(
+                    icon: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: Icon(Icons.person),
                     ),
-                    label: "Account")
+                    label: "Account".tr())
               ]),
         );
       },
