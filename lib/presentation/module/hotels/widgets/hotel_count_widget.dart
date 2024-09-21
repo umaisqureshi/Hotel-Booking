@@ -17,6 +17,7 @@ class HotelCountWidget extends StatelessWidget {
         constraints: const BoxConstraints(maxWidth: 200),
         child: RichText(
           overflow: TextOverflow.ellipsis,
+          locale: context.locale,
           text: TextSpan(
             style: const TextStyle(
               fontWeight: FontWeight.w700,

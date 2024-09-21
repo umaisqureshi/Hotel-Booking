@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
 import 'package:hotel_booking/presentation/extension/context_extension.dart';
 import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
@@ -52,7 +53,15 @@ class HotelCardWidget extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: animatedRatingStars(hotel.ratingInfo?.score ?? 0.0),
+              child: Row(
+                children: [
+                  animatedRatingStars(hotel.ratingInfo?.score ?? 0.0),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  SvgPicture.asset('assets/images/svg/info.svg'),
+                ],
+              ),
             ),
             Padding(
               padding:
