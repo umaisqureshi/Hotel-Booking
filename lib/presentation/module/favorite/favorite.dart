@@ -11,7 +11,6 @@ class FavoriteScreen extends StatefulScreen<FavoriteBloc> {
   const FavoriteScreen({
     super.key,
   });
-
   @override
   State<StatefulWidget> createState() {
     return _FavoriteScreenState();
