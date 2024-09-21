@@ -13,7 +13,6 @@ class FavoriteListWidget extends StatefulWidget {
   @override
   State<FavoriteListWidget> createState() => _FavoriteListWidgetState();
 }
-
 class _FavoriteListWidgetState extends State<FavoriteListWidget> {
   @override
   Widget build(BuildContext context) {
