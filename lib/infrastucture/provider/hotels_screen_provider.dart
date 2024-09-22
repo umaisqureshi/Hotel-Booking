@@ -13,7 +13,6 @@ class HotelsScreenProvider extends StatefulWidget {
 }
 
 class _HotelsScreenProviderState extends State<HotelsScreenProvider> {
-
   @override
   Widget build(BuildContext context) {
     return const HotelsScreen();

@@ -24,22 +24,20 @@ class RatingCountWidget extends StatelessWidget {
               decoration: BoxDecoration(
                   color: const Color(0xff85BC39),
                   borderRadius: BorderRadius.circular(2)),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                        'assets/images/svg/smiley.svg'),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      "${hotel.ratingInfo?.score ?? 0.0} / 5.0",
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700),
-                    )
-                  ]),
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                SvgPicture.asset('assets/images/svg/smiley.svg'),
+                const SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  "${hotel.ratingInfo?.score ?? 0.0} / 5.0",
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700),
+                )
+              ]),
             ),
             const SizedBox(
               width: 5,
@@ -53,12 +51,10 @@ class RatingCountWidget extends StatelessWidget {
                 ),
                 children: [
                   TextSpan(
-                    text:
-                    hotel.ratingInfo?.scoreDescription ?? "",
+                    text: hotel.ratingInfo?.scoreDescription ?? "",
                   ),
                   TextSpan(
-                    text:
-                    " (${hotel.ratingInfo?.reviewsCount ?? 0} ",
+                    text: " (${hotel.ratingInfo?.reviewsCount ?? 0} ",
                     style: const TextStyle(
                       fontWeight: FontWeight
                           .w400, // Make review count slightly less bold

@@ -11,7 +11,6 @@ class FavoriteScreenProvider extends StatefulWidget {
 }
 
 class _FavoriteScreenProviderState extends State<FavoriteScreenProvider> {
-
   @override
   Widget build(BuildContext context) {
     return FavoriteScreen(

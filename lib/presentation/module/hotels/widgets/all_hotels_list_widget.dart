@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
-import 'package:hotel_booking/presentation/extension/context_extension.dart';
 import 'package:hotel_booking/presentation/module/hotels/widgets/hotal_card_widget.dart';
 
 class HotelListWidget extends StatefulWidget {
