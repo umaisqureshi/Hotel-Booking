@@ -1,16 +1,13 @@
-import 'package:bloc/src/bloc.dart';
-import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
+
 import 'package:hotel_booking/domain/base/use_case_result.dart';
 import 'package:hotel_booking/domain/favorite/get/get_all_favorites_use_case.dart';
 import 'package:hotel_booking/domain/favorite/remove/remove_favorite_use_case.dart';
 import 'package:hotel_booking/domain/favorite/remove/remove_request.dart';
-import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
 import 'package:hotel_booking/presentation/base/state/listenable_state.dart';
 import 'package:hotel_booking/presentation/base/state/none_equatable_state.dart';
 import 'package:hotel_booking/presentation/module/favorite/bloc/blocdata/favorite_bloc_data.dart';
-import 'package:injectable/injectable.dart';
-import 'package:hotel_booking/presentation/base/bloc/base_bloc.dart';
+import 'package:hotel_booking/presentation/presentation.dart';
+
 part 'favorite_event.dart';
 part 'favorite_state.dart';
 

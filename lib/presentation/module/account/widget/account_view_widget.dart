@@ -1,7 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:hotel_booking/presentation/extension/context_extension.dart';
-import 'package:hotel_booking/presentation/module/account/widget/animated_toggle_widget.dart';
+import 'package:hotel_booking/presentation/presentation.dart';
 
 class AccountScreenView extends StatelessWidget {
   const AccountScreenView({super.key});
