@@ -148,12 +148,12 @@ class TravelDateEntityMapper extends EntityMapper<TravelDate, TravelDateDto> {
   }
 }
 
-class ImagesEntityMapper extends EntityMapper<Image, ImageDto> {
+class ImagesEntityMapper extends EntityMapper<ImageEntity, ImageDto> {
   const ImagesEntityMapper();
 
   @override
-  Image mapToEntity(ImageDto dto) {
-    return Image(large: dto.large, small: dto.small);
+  ImageEntity mapToEntity(ImageDto dto) {
+    return ImageEntity(large: dto.large, small: dto.small);
   }
 }
 

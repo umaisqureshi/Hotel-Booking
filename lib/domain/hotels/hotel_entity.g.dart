@@ -22,7 +22,7 @@ class HotelAdapter extends TypeAdapter<Hotel> {
       category: fields[2] as int?,
       destination: fields[3] as String?,
       hotelId: fields[4] as String?,
-      images: (fields[5] as List?)?.cast<Image>(),
+      images: (fields[5] as List?)?.cast<ImageEntity>(),
       name: fields[6] as String?,
       ratingInfo: fields[7] as RatingInfo?,
     );
@@ -380,24 +380,24 @@ class TravelDateAdapter extends TypeAdapter<TravelDate> {
           typeId == other.typeId;
 }
 
-class ImageAdapter extends TypeAdapter<Image> {
+class ImageEntityAdapter extends TypeAdapter<ImageEntity> {
   @override
   final int typeId = 8;
 
   @override
-  Image read(BinaryReader reader) {
+  ImageEntity read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Image(
+    return ImageEntity(
       large: fields[0] as String?,
       small: fields[1] as String?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Image obj) {
+  void write(BinaryWriter writer, ImageEntity obj) {
     writer
       ..writeByte(2)
       ..writeByte(0)
@@ -412,7 +412,7 @@ class ImageAdapter extends TypeAdapter<Image> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ImageAdapter &&
+      other is ImageEntityAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

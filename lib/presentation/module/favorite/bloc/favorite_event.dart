@@ -20,7 +20,7 @@ class RemoveConfirmationEvent extends FavoriteEvent
   List<Object?> get props => [hotelId];
 }
 
-class GetAllFavoriteEvent extends FavoriteEvent implements NoneEquatableState {
+class GetAllFavoriteEvent extends FavoriteEvent {
   @override
   List<Object?> get props => [DateTime.now().microsecond];
 }

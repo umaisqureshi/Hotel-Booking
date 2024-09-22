@@ -50,7 +50,6 @@ dependencies:
   json_annotation: ^4.8.0
   lottie: ^3.1.2
   custom_refresh_indicator: ^4.0.1
-  connectivity_plus: ^6.0.4
   animated_toggle_switch: ^0.8.2
   auto_route:
   uuid:
@@ -80,6 +79,8 @@ dev_dependencies:
   freezed: ^2.3.2
   hive_generator: ^2.0.1
   json_serializable: ^6.6.1
+  bloc_test:
+  mocktail:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

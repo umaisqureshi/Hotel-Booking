@@ -33,95 +33,97 @@ class HotelCardWidget extends StatelessWidget {
             ],
             color: context.appColorScheme.backgroundColor,
             shape: BoxShape.rectangle),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: EdgeInsets.zero,
-              height: MediaQuery.sizeOf(context).height * 0.25,
-              width: MediaQuery.sizeOf(context).width * 0.95,
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(5),
-                      topRight: Radius.circular(5)),
-                  color: context.appColorScheme.primary,
-                  shape: BoxShape.rectangle),
-              child: cachedNetworkImage(hotel.images?.first.large ?? "", 5.0),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                children: [
-                  animatedRatingStars(hotel.ratingInfo?.score ?? 0.0),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  SvgPicture.asset('assets/images/svg/info.svg'),
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.zero,
+                height: MediaQuery.sizeOf(context).height * 0.25,
+                width: MediaQuery.sizeOf(context).width * 0.95,
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(5),
+                        topRight: Radius.circular(5)),
+                    color: context.appColorScheme.primary,
+                    shape: BoxShape.rectangle),
+                child: cachedNetworkImage(hotel.images?.first.large ?? "", 5.0),
               ),
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    constraints: const BoxConstraints(maxWidth: 300),
-                    child: Text(
-                      hotel.name ?? "Undefined",
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16,
-                          color: Color(0xff222222)),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  children: [
+                    animatedRatingStars(hotel.ratingInfo?.score ?? 0.0),
+                    const SizedBox(
+                      width: 5,
                     ),
-                  ),
-                  Container(
-                    constraints: const BoxConstraints(maxWidth: 300),
-                    child: Text(
-                      hotel.destination ?? "Location Undefined",
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                          color: Color(0xff595959)),
+                    SvgPicture.asset('assets/images/svg/info.svg'),
+                  ],
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      constraints: const BoxConstraints(maxWidth: 300),
+                      child: Text(
+                        hotel.name ?? "Undefined",
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                            color: Color(0xff222222)),
+                      ),
                     ),
-                  ),
-                ],
+                    Container(
+                      constraints: const BoxConstraints(maxWidth: 300),
+                      child: Text(
+                        hotel.destination ?? "Location Undefined",
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: Color(0xff595959)),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Divider(
-                color: Colors.grey[300],
+              const SizedBox(
+                height: 5,
               ),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            HotelDetailWidget(hotel: hotel),
-            const SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: ButtonWidget(
-                text: "Add to Favorite".tr(),
-                onPress: () {
-                  context
-                      .read<HotelBloc>()
-                      .add(AddToFavoriteEvent(hotel: hotel));
-                },
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Divider(
+                  color: Colors.grey[300],
+                ),
               ),
-            )
-          ],
+              const SizedBox(
+                height: 5,
+              ),
+              HotelDetailWidget(hotel: hotel),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: ButtonWidget(
+                  text: "Add to Favorite".tr(),
+                  onPress: () {
+                    context
+                        .read<HotelBloc>()
+                        .add(AddToFavoriteEvent(hotel: hotel));
+                  },
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

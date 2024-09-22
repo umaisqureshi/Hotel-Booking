@@ -30,7 +30,7 @@ class Hotel extends HiveObject implements Entity {
   String? hotelId;
 
   @HiveField(5)
-  List<Image>? images;
+  List<ImageEntity>? images;
 
   @HiveField(6)
   String? name;
@@ -229,14 +229,14 @@ class TravelDate extends HiveObject implements Entity {
 }
 
 @HiveType(typeId: 8)
-class Image extends HiveObject implements Entity {
+class ImageEntity extends HiveObject implements Entity {
   @HiveField(0)
   String? large;
 
   @HiveField(1)
   String? small;
 
-  Image({
+  ImageEntity({
     required this.large,
     required this.small,
   });
