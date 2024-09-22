@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
@@ -13,7 +14,16 @@ class GetAllHotelsComponent extends ErrorWidgetHandlerComponent<HotelBloc,
 
   @override
   Widget buildComponent(BuildContext context, HotelsLoadedState state) {
-    return HotelViewScreen(state: state);
+    if (state.hotels.isEmpty) {
+      return  Center(
+        child: Text(
+          "No Hotels".tr(),
+          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+        ),
+      );
+    } else {
+      return HotelViewScreen(state: state);
+    }
   }
 
   @override

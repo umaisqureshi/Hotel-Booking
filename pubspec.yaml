@@ -50,7 +50,6 @@ dependencies:
   json_annotation: ^4.8.0
   lottie: ^3.1.2
   custom_refresh_indicator: ^4.0.1
-  connectivity_plus: ^6.0.4
   animated_toggle_switch: ^0.8.2
   auto_route:
   uuid:

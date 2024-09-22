@@ -1,4 +1,4 @@
-# weather_app
+# hotel_booking
 
 A new Flutter project.
 
