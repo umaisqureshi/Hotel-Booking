@@ -10,7 +10,6 @@ import 'package:hotel_booking/presentation/widget/loading_indicator.dart';
 class GetAllFavoritesComponent extends ErrorWidgetHandlerComponent<FavoriteBloc,
     FavoriteState, GetAllFavoriteState, FavoriteErrorState> {
   const GetAllFavoritesComponent({super.key});
-
   @override
   Widget buildComponent(BuildContext context, GetAllFavoriteState state) {
     if (state.favorites.isEmpty) {

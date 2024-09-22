@@ -380,7 +380,7 @@ class TravelDateAdapter extends TypeAdapter<TravelDate> {
           typeId == other.typeId;
 }
 
-class ImageAdapter extends TypeAdapter<ImageEntity> {
+class ImageEntityAdapter extends TypeAdapter<ImageEntity> {
   @override
   final int typeId = 8;
 
@@ -412,7 +412,7 @@ class ImageAdapter extends TypeAdapter<ImageEntity> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ImageAdapter &&
+      other is ImageEntityAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

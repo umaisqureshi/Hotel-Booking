@@ -11,7 +11,7 @@ class HiveAdapters {
     Hive.registerAdapter(OverallAdapter());
     Hive.registerAdapter(PricesAndOccupancyAdapter());
     Hive.registerAdapter(TravelDateAdapter());
-    Hive.registerAdapter(ImageAdapter());
+    Hive.registerAdapter(ImageEntityAdapter());
     Hive.registerAdapter(RatingInfoAdapter());
   }
 }
