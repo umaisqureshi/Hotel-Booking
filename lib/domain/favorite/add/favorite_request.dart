@@ -1,5 +1,4 @@
-import 'package:hotel_booking/domain/base/request.dart';
-import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
+import 'package:hotel_booking/domain/domain.dart';
 
 class FavoriteRequest extends Request {
   final Hotel hotel;

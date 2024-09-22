@@ -1,8 +1,4 @@
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hotel_booking/data/exception/exception.dart';
-import 'package:hotel_booking/data/repository/hotels_local_datasource.dart';
-import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
-import 'package:injectable/injectable.dart';
+import 'package:hotel_booking/data/data.dart';
 
 @Injectable(as: HotelsLocalDatasource)
 class LocalDatabaseService extends HotelsLocalDatasource {

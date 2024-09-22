@@ -1,7 +1,4 @@
-import 'package:hotel_booking/data/repository/hotels_repository.dart';
-import 'package:hotel_booking/domain/base/usecase/supplier_usecase.dart';
-import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
-import 'package:injectable/injectable.dart';
+import 'package:hotel_booking/domain/domain.dart';
 
 @injectable
 class GetHotelsUseCase extends SupplierUseCase<HotelEntity> {

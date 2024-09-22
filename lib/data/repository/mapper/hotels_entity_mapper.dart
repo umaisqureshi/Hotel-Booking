@@ -1,6 +1,4 @@
-import 'package:hotel_booking/data/base/entity_mapper.dart';
-import 'package:hotel_booking/data/repository/dto/hotels_dto.dart';
-import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
+import 'package:hotel_booking/data/data.dart';
 
 class HotelsEntityMapper extends EntityMapper<HotelEntity, HotelsDto> {
   const HotelsEntityMapper();

@@ -8,7 +8,7 @@ class GetAllHotelsComponent extends ErrorWidgetHandlerComponent<HotelBloc,
   @override
   Widget buildComponent(BuildContext context, HotelsLoadedState state) {
     if (state.hotels.isEmpty) {
-      return  Center(
+      return Center(
         child: Text(
           "No Hotels".tr(),
           style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 18),

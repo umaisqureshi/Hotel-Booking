@@ -1,4 +1,4 @@
-import 'package:hotel_booking/data/repository/dto/hotels_dto.dart';
+import 'package:hotel_booking/data/data.dart';
 
 abstract class HotelsDataSource {
   Future<HotelsDto> getAllHotels();

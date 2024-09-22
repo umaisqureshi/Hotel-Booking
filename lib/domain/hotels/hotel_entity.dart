@@ -1,5 +1,4 @@
-import 'package:hotel_booking/domain/base/entity.dart';
-import 'package:hive/hive.dart';
+import 'package:hotel_booking/domain/domain.dart';
 part 'hotel_entity.g.dart';
 
 class HotelEntity extends Entity {

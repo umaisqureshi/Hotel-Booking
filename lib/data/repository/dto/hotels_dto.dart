@@ -1,15 +1,14 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hotel_booking/data/base/dto.dart';
+import 'package:hotel_booking/data/data.dart';
+
 part 'hotels_dto.freezed.dart';
 part 'hotels_dto.g.dart';
 
 @freezed
 class HotelsDto with _$HotelsDto implements Dto {
   @JsonSerializable(fieldRename: FieldRename.kebab)
-  const factory HotelsDto({
-    required List<HotelListDto> hotels,
-    required int hotelCount
-  }) = _HotelsDto;
+  const factory HotelsDto(
+      {required List<HotelListDto> hotels,
+      required int hotelCount}) = _HotelsDto;
   factory HotelsDto.fromJson(Map<String, dynamic> json) =>
       _$HotelsDtoFromJson(json);
 }
