@@ -1,6 +1,11 @@
 # Hotel booking
 
-A new Flutter project.
+A Flutter project with Clean Architecture using Flutter Bloc State Management with 
+combination of Repository pattern.
+
+# Commands
+- Test : flutter test test
+- Run : flutter run
 
 # Flutter Bootstrap Architecture
 
@@ -65,15 +70,19 @@ use.
 
 The main idea of **Domain** module is handling `Business rules` and connect user interactions with logic of
 application.
-
 This module should be as pure as possible and should have the least dependency to any implementation or libraries.
+This module consist of three different types of use cases types:
+- SupplierUseCase [return Entity]
+- SingleUseCase [take request data and return Entity]
+- ConsumerUseCase [take only request data]
 
+we are able to use them according to our requirement or behaviour we need from our use case. 
 
 ### Data Module
 
 In this layer we should handle data and data flow of application. managing `data sources` is responsibility of this
-layer.
-
+layer and also we have `repositories` inside that module to make connection or switch connection between remote or 
+local source according to our requirement.
 
 #### Remote Module
 
@@ -84,6 +93,7 @@ api services.
 #### Local Module
 
 Persistence layer of application and database and related files are in this module.
+Hive is used for database management locally.
 
 
 ## Data Flow
@@ -148,4 +158,7 @@ class _HotelsScreenProviderState extends State<HotelsScreenProvider> {
 - The provider will create the `Widget`
 
 
+# Test 
+
+Test folder consist of both unit [bloc test] and widget test.
 

@@ -1,10 +1,5 @@
-import 'package:hotel_booking/data/repository/hotels_data_source.dart';
-import 'package:hotel_booking/data/repository/hotels_local_datasource.dart';
-import 'package:hotel_booking/data/repository/mapper/hotels_entity_mapper.dart';
-import 'package:hotel_booking/domain/favorite/add/favorite_request.dart';
-import 'package:hotel_booking/domain/favorite/remove/remove_request.dart';
-import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
-import 'package:injectable/injectable.dart';
+
+import 'package:hotel_booking/data/data.dart';
 
 @injectable
 class HotelsRepository {

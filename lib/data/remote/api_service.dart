@@ -1,8 +1,4 @@
-import 'package:dio/dio.dart';
-import 'package:hotel_booking/data/remote/dto/hotel_dto_mapper.dart';
-import 'package:hotel_booking/data/repository/dto/hotels_dto.dart';
-import 'package:hotel_booking/data/repository/hotels_data_source.dart';
-import 'package:injectable/injectable.dart';
+import 'package:hotel_booking/data/data.dart';
 
 @Injectable(as: HotelsDataSource)
 class HotelApiService extends HotelsDataSource {

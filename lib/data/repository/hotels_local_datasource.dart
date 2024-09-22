@@ -1,5 +1,4 @@
-
-import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
+import 'package:hotel_booking/data/data.dart';
 
 abstract class HotelsLocalDatasource {
   void addToLocal(Hotel hotel);

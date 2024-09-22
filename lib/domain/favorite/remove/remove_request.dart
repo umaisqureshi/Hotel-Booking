@@ -1,4 +1,5 @@
-import 'package:hotel_booking/domain/base/request.dart';
+
+import 'package:hotel_booking/domain/domain.dart';
 
 class RemoveFavoriteRequest extends Request {
   final String hotelId;

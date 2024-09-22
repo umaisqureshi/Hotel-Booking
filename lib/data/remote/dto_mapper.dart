@@ -1,4 +1,4 @@
-import 'package:hotel_booking/data/base/dto.dart';
+import 'package:hotel_booking/data/data.dart';
 
 abstract class RemoteMapper<D> {
   const RemoteMapper();
