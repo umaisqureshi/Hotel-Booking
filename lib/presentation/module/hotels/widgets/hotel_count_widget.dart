@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
+import 'package:hotel_booking/presentation/presentation.dart';
 
 class HotelCountWidget extends StatelessWidget {
   const HotelCountWidget({

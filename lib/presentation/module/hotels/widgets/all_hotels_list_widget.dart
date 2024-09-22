@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
-import 'package:hotel_booking/presentation/module/hotels/widgets/hotal_card_widget.dart';
+import 'package:hotel_booking/presentation/presentation.dart';
 
 class HotelListWidget extends StatefulWidget {
   final List<Hotel> hotels;

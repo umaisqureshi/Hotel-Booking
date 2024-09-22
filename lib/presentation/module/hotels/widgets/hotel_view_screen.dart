@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
-import 'package:hotel_booking/presentation/module/hotels/widgets/all_hotels_list_widget.dart';
-import 'package:hotel_booking/presentation/module/hotels/widgets/hotel_count_widget.dart';
+import 'package:hotel_booking/presentation/presentation.dart';
 
 class HotelViewScreen extends StatelessWidget {
   final HotelsLoadedState state;

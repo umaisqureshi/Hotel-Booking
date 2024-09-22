@@ -1,12 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hotel_booking/presentation/extension/context_extension.dart';
-import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
-import 'package:hotel_booking/presentation/module/hotels/components/all_hotels_component.dart';
-import 'package:hotel_booking/presentation/utils/app_alerts.dart';
 import '../../base/screen/stateful_screen.dart';
+import 'package:hotel_booking/presentation/presentation.dart';
 
 class HotelsScreen extends StatefulScreen<HotelBloc> {
   const HotelsScreen({

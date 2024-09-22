@@ -1,12 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hotel_booking/presentation/extension/context_extension.dart';
-import 'package:hotel_booking/presentation/module/favorite/bloc/favorite_bloc.dart';
-import 'package:hotel_booking/presentation/module/favorite/component/all_favorites_component.dart';
-import 'package:hotel_booking/presentation/utils/app_alerts.dart';
 import '../../base/screen/stateful_screen.dart';
+import 'package:hotel_booking/presentation/presentation.dart';
 
 class FavoriteScreen extends StatefulScreen<FavoriteBloc> {
   const FavoriteScreen({

@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
-import 'package:hotel_booking/presentation/extension/context_extension.dart';
-import 'package:hotel_booking/presentation/module/favorite/bloc/favorite_bloc.dart';
-import 'package:hotel_booking/presentation/module/favorite/widget/favorite_card_widget.dart';
-import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
+import 'package:hotel_booking/presentation/presentation.dart';
 
 class FavoriteListWidget extends StatefulWidget {
   final Iterable<Hotel> hotels;
