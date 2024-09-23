@@ -18,7 +18,7 @@ packages:
     source: hosted
     version: "5.13.0"
   animated_rating_stars:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: animated_rating_stars
       sha256: "0d64350a874be1fe5ce88ff87d36e035c7c7bd867106b6439995a21d7a0fac55"
@@ -26,7 +26,7 @@ packages:
     source: hosted
     version: "1.0.1"
   animated_toggle_switch:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: animated_toggle_switch
       sha256: "35e3d6c74eef79c415ac3986046c35cb1ea42720afce13ec7f1a014f72dfd71c"
@@ -58,7 +58,7 @@ packages:
     source: hosted
     version: "2.11.0"
   auto_route:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: auto_route
       sha256: "8de4a280ce7861ef24a6baa14c2b02b77a8c31b4a4c4f12d7b608678cc657c7f"
@@ -162,7 +162,7 @@ packages:
     source: hosted
     version: "8.9.2"
   cached_network_image:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: cached_network_image
       sha256: "28ea9690a8207179c319965c13cd8df184d5ee721ae2ce60f398ced1219cea1f"
@@ -274,7 +274,7 @@ packages:
     source: hosted
     version: "6.0.0"
   cupertino_icons:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: cupertino_icons
       sha256: ba631d1c7f7bef6b729a622b7b752645a2d076dba9976925b8f25725a30e1ee6
@@ -282,7 +282,7 @@ packages:
     source: hosted
     version: "1.0.8"
   custom_refresh_indicator:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: custom_refresh_indicator
       sha256: c34dd1dfb1f6b9ee2db9c5972586dba5e4445d79f8431f6ab098a6e963ccd39c
@@ -314,7 +314,7 @@ packages:
     source: hosted
     version: "0.4.1"
   dio:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: dio
       sha256: f7c26ddb3a10ff033cf1bfbf2c668feb3472327f48385775f7cf25b104f8bfce
@@ -322,7 +322,7 @@ packages:
     source: hosted
     version: "5.1.0"
   easy_localization:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: easy_localization
       sha256: fa59bcdbbb911a764aa6acf96bbb6fa7a5cf8234354fc45ec1a43a0349ef0201
@@ -330,7 +330,7 @@ packages:
     source: hosted
     version: "3.0.7"
   easy_localization_loader:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: easy_localization_loader
       sha256: cc0ca78f5f9013f3cdb80480a2efab10c9abadc82560dc412e977c372b09268f
@@ -346,7 +346,7 @@ packages:
     source: hosted
     version: "0.0.2"
   equatable:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: equatable
       sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
@@ -386,12 +386,12 @@ packages:
     source: hosted
     version: "1.1.0"
   flutter:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description: flutter
     source: sdk
     version: "0.0.0"
   flutter_bloc:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: flutter_bloc
       sha256: b594505eac31a0518bdcb4b5b79573b8d9117b193cc80cc12e17d639b10aa27a
@@ -420,7 +420,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_svg:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: flutter_svg
       sha256: "7b4ca6cf3304575fe9c8ec64813c8d02ee41d2afe60bcfe0678bcb5375d596a2"
@@ -446,7 +446,7 @@ packages:
     source: hosted
     version: "2.5.2"
   freezed_annotation:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: freezed_annotation
       sha256: c2e2d632dd9b8a2b7751117abcfc2b4888ecfe181bd9fca7170d9ef02e595fe2
@@ -462,7 +462,7 @@ packages:
     source: hosted
     version: "4.0.0"
   get_it:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: get_it
       sha256: "290fde3a86072e4b37dbb03c07bec6126f0ecc28dad403c12ffe2e5a2d751ab7"
@@ -478,7 +478,7 @@ packages:
     source: hosted
     version: "2.1.2"
   google_fonts:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: google_fonts
       sha256: "2776c66b3e97c6cdd58d1bd3281548b074b64f1fd5c8f82391f7456e38849567"
@@ -494,7 +494,7 @@ packages:
     source: hosted
     version: "2.3.1"
   hive:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: hive
       sha256: "8dcf6db979d7933da8217edcec84e9df1bdb4e4edc7fc77dbd5aa74356d6d941"
@@ -502,7 +502,7 @@ packages:
     source: hosted
     version: "2.2.3"
   hive_flutter:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: hive_flutter
       sha256: dca1da446b1d808a51689fb5d0c6c9510c0a2ba01e22805d492c73b68e33eecc
@@ -542,7 +542,7 @@ packages:
     source: hosted
     version: "4.0.2"
   injectable:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: injectable
       sha256: "7dab7d341feb40a0590d9ff6261aea9495522005e2c6763f9161a4face916f7b"
@@ -558,7 +558,7 @@ packages:
     source: hosted
     version: "2.1.4"
   intl:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: intl
       sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
@@ -582,7 +582,7 @@ packages:
     source: hosted
     version: "0.7.1"
   json_annotation:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: json_annotation
       sha256: "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1"
@@ -638,7 +638,7 @@ packages:
     source: hosted
     version: "1.2.0"
   lottie:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: lottie
       sha256: "6a24ade5d3d918c306bb1c21a6b9a04aab0489d51a2582522eea820b4093b62b"
@@ -662,7 +662,7 @@ packages:
     source: hosted
     version: "0.8.0"
   meta:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: meta
       sha256: "7687075e408b093f36e6bbf6c91878cc0d4cd10f409506f7bc996f68220b9136"
@@ -742,7 +742,7 @@ packages:
     source: hosted
     version: "1.0.1"
   path_provider:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: path_provider
       sha256: fec0d61223fba3154d87759e3cc27fe2c8dc498f6386c6d6fc80d1afdd1bf378
@@ -1107,7 +1107,7 @@ packages:
     source: hosted
     version: "1.3.2"
   uuid:
-    dependency: "direct main"
+    dependency: "direct dashboard"
     description:
       name: uuid
       sha256: "83d37c7ad7aaf9aa8e275490669535c8080377cfa7a7004c24dfac53afffaa90"

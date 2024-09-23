@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import '../../base/screen/stateful_screen.dart';
 import 'package:hotel_booking/presentation/presentation.dart';
 
-class HotelsScreen extends StatefulScreen<HotelBloc> {
+class HotelsScreen extends StatefulScreen<DashboardBloc> {
   const HotelsScreen({
     super.key,
   });
@@ -13,11 +13,11 @@ class HotelsScreen extends StatefulScreen<HotelBloc> {
   }
 }
 
-class _HotelsScreenState extends ScreenState<HotelBloc> {
+class _HotelsScreenState extends ScreenState<DashboardBloc> {
   final AppAlerts alerts = AppAlerts();
   @override
   void initState() {
-    context.read<HotelBloc>().add(GetAllHotelsEvent());
+    context.read<DashboardBloc>().add(GetAllHotelsEvent());
     super.initState();
   }
 

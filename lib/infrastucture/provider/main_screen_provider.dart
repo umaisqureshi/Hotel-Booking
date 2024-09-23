@@ -6,9 +6,8 @@ import 'package:hotel_booking/domain/favorite/add/add_favorite_use_case.dart';
 import 'package:hotel_booking/domain/favorite/get/get_all_favorites_use_case.dart';
 import 'package:hotel_booking/domain/favorite/remove/remove_favorite_use_case.dart';
 import 'package:hotel_booking/domain/hotels/get_hotels_use_case.dart';
-import 'package:hotel_booking/presentation/module/favorite/bloc/favorite_bloc.dart';
-import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
-import 'package:hotel_booking/presentation/module/main/main_screen.dart';
+import 'package:hotel_booking/presentation/module/dashboard/bloc/dashboard_bloc.dart';
+import 'package:hotel_booking/presentation/module/dashboard/main_screen.dart';
 
 @RoutePage()
 class MainScreenProvider extends StatefulWidget {
@@ -26,16 +25,9 @@ class _MainScreenProviderState extends State<MainScreenProvider> {
     return MultiBlocProvider(providers: [
       BlocProvider(
         create: (context) {
-          final bloc = FavoriteBloc(
+          final bloc = DashboardBloc(
             getAllFavoritesUseCase: getIt.get<GetAllFavoritesUseCase>(),
             removeFavoriteUseCase: getIt.get<RemoveFavoriteUseCase>(),
-          );
-          return bloc;
-        },
-      ),
-      BlocProvider(
-        create: (context) {
-          final bloc = HotelBloc(
             getHotelUseCase: getIt.get<GetHotelsUseCase>(),
             addToFavoriteUseCase: getIt.get<AddToFavoriteUseCase>(),
           );

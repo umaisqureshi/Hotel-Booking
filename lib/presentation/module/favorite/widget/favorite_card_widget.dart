@@ -45,7 +45,7 @@ class FavoriteCardWidget extends StatelessWidget {
                       top: 10,
                       child: InkWell(
                         onTap: () {
-                          context.read<FavoriteBloc>().add(
+                          context.read<DashboardBloc>().add(
                               RemoveConfirmationEvent(hotelId: hotel.hotelId!));
                         },
                         child: const Icon(

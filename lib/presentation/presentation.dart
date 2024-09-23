@@ -10,14 +10,24 @@ export 'package:equatable/equatable.dart';
 export 'package:injectable/injectable.dart';
 export 'package:hotel_booking/presentation/base/bloc/base_bloc.dart';
 
-//main screen
+//dashboard screen
 export 'package:hotel_booking/infrastucture/routing/app_router.gr.dart';
-export 'package:hotel_booking/presentation/module/favorite/bloc/favorite_bloc.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
+export 'package:hotel_booking/presentation/module/dashboard/bloc/dashboard_bloc.dart';
 export 'package:auto_route/auto_route.dart';
+export 'package:hotel_booking/data/exception/exception.dart';
+export 'package:hotel_booking/domain/base/use_case_result.dart';
+export 'package:hotel_booking/domain/favorite/add/add_favorite_use_case.dart';
+export 'package:hotel_booking/domain/favorite/add/favorite_request.dart';
+export 'package:hotel_booking/domain/favorite/get/get_all_favorites_use_case.dart';
+export 'package:hotel_booking/domain/favorite/remove/remove_favorite_use_case.dart';
+export 'package:hotel_booking/domain/favorite/remove/remove_request.dart';
+export 'package:hotel_booking/domain/hotels/get_hotels_use_case.dart';
+export 'package:hotel_booking/presentation/base/state/listenable_state.dart';
+export 'package:hotel_booking/presentation/base/state/none_equatable_state.dart';
+export 'package:hotel_booking/presentation/module/dashboard/bloc/blocdata/dashboard_bloc_data.dart';
 
 //hotels
-export 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
 export 'package:hotel_booking/presentation/module/hotels/components/all_hotels_component.dart';
 export 'package:hotel_booking/presentation/utils/app_alerts.dart';
 export 'package:hotel_booking/presentation/module/hotels/widgets/hotel_view_screen.dart';

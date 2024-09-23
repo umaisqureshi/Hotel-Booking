@@ -20,12 +20,11 @@ import 'package:hotel_booking/domain/favorite/remove/remove_favorite_use_case.da
 import 'package:hotel_booking/domain/hotels/get_hotels_use_case.dart' as _i13;
 import 'package:hotel_booking/presentation/module/account/bloc/account_bloc.dart'
     as _i3;
-import 'package:hotel_booking/presentation/module/favorite/bloc/favorite_bloc.dart'
-    as _i15;
-import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart'
+import 'package:hotel_booking/presentation/module/dashboard/bloc/dashboard_bloc.dart'
     as _i14;
 import 'package:hotel_booking/presentation/module/overview/bloc/overview_bloc.dart'
     as _i8;
+import 'package:hotel_booking/presentation/presentation.dart' as _i15;
 import 'package:injectable/injectable.dart'
     as _i2; // ignore_for_file: unnecessary_lambdas
 
@@ -57,13 +56,11 @@ extension GetItInjectableX on _i1.GetIt {
         _i12.GetAllFavoritesUseCase(repository: gh<_i10.HotelsRepository>()));
     gh.factory<_i13.GetHotelsUseCase>(
         () => _i13.GetHotelsUseCase(repository: gh<_i10.HotelsRepository>()));
-    gh.factory<_i14.HotelBloc>(() => _i14.HotelBloc(
-          getHotelUseCase: gh<_i13.GetHotelsUseCase>(),
-          addToFavoriteUseCase: gh<_i11.AddToFavoriteUseCase>(),
-        ));
-    gh.factory<_i15.FavoriteBloc>(() => _i15.FavoriteBloc(
-          getAllFavoritesUseCase: gh<_i12.GetAllFavoritesUseCase>(),
-          removeFavoriteUseCase: gh<_i9.RemoveFavoriteUseCase>(),
+    gh.factory<_i14.DashboardBloc>(() => _i14.DashboardBloc(
+          getHotelUseCase: gh<_i15.GetHotelsUseCase>(),
+          getAllFavoritesUseCase: gh<_i15.GetAllFavoritesUseCase>(),
+          removeFavoriteUseCase: gh<_i15.RemoveFavoriteUseCase>(),
+          addToFavoriteUseCase: gh<_i15.AddToFavoriteUseCase>(),
         ));
     return this;
   }
