@@ -13,7 +13,6 @@ class MockHotelBloc extends Mock implements DashboardBloc {}
 void main() {
   late Hotel hotel;
   late DashboardBloc mockHotelBloc;
-
   setUp(() {
     mockHotelBloc = MockHotelBloc();
     when(() => mockHotelBloc.state).thenReturn(DashboardInitial());
