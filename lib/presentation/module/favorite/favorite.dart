@@ -15,7 +15,10 @@ class FavoriteScreen extends StatefulScreen<FavoriteBloc> {
 class _FavoriteScreenState extends ScreenState<FavoriteBloc> {
   final AppAlerts alerts = AppAlerts();
   @override
-
+  void initState() {
+    context.read<FavoriteBloc>().add(GetAllFavoriteEvent());
+    super.initState();
+  }
 
   @override
   Widget buildScreen(BuildContext context) {

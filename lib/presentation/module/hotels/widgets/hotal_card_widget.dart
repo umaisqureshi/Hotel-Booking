@@ -110,6 +110,7 @@ class HotelCardWidget extends StatelessWidget {
                     context
                         .read<HotelBloc>()
                         .add(AddToFavoriteEvent(hotel: hotel));
+                    context.read<FavoriteBloc>().add(GetAllFavoriteEvent());
                   },
                 ),
               )
