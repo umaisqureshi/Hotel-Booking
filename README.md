@@ -5,7 +5,8 @@ combination of Repository pattern.
 
 # Commands
 - Test : flutter test test
-- Run : flutter run
+- Run : [dart run build_runner build]  and then [flutter run]
+
 
 # Flutter Bootstrap Architecture
 
