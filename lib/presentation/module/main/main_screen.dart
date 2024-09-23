@@ -29,9 +29,6 @@ class _MainScreenState extends State<MainScreen> {
               unselectedItemColor: Colors.grey,
               currentIndex: tabRouter.activeIndex,
               onTap: (index) {
-                if (index == 2) {
-                  context.read<FavoriteBloc>().add(GetAllFavoriteEvent());
-                }
                 tabRouter.setActiveIndex(index);
               },
               items: [

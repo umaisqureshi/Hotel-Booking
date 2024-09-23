@@ -17,7 +17,6 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-
   await HiveAdapters().initAdapters();
   await Hive.openBox<Hotel>("FavoriteBox");
 
