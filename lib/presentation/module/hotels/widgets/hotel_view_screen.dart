@@ -11,7 +11,7 @@ class HotelViewScreen extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        HotelCountWidget(count: state.HotelCount),
+        HotelCountWidget(count: state.hotelCount),
         const SizedBox(
           height: 5,
         ),

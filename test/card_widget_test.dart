@@ -2,23 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hotel_booking/domain/hotels/hotel_entity.dart';
-import 'package:hotel_booking/presentation/module/hotels/bloc/hotels_bloc.dart';
 import 'package:hotel_booking/presentation/module/hotels/widgets/hotal_card_widget.dart';
+import 'package:hotel_booking/presentation/module/dashboard/bloc/dashboard_bloc.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-class MockHotelBloc extends Mock implements HotelBloc {}
+class MockHotelBloc extends Mock implements DashboardBloc {}
 
 void main() {
   late Hotel hotel;
-  late HotelBloc mockHotelBloc;
-
+  late DashboardBloc mockHotelBloc;
   setUp(() {
     mockHotelBloc = MockHotelBloc();
-    when(() => mockHotelBloc.state).thenReturn(HotelsInitial());
+    when(() => mockHotelBloc.state).thenReturn(DashboardInitial());
     when(() => mockHotelBloc.stream)
-        .thenAnswer((_) => Stream.value(HotelsInitial()));
+        .thenAnswer((_) => Stream.value(DashboardInitial()));
 
     hotel = Hotel(
       name: 'Test Hotel',
@@ -37,7 +36,7 @@ void main() {
   });
 
   Widget createTestWidget(Widget child) {
-    return BlocProvider<HotelBloc>.value(
+    return BlocProvider<DashboardBloc>.value(
       value: mockHotelBloc,
       child: MaterialApp(
         home: Scaffold(body: child),

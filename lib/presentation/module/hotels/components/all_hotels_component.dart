@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:hotel_booking/presentation/presentation.dart';
 
-class GetAllHotelsComponent extends ErrorWidgetHandlerComponent<HotelBloc,
-    HotelsState, HotelsLoadedState, HotelErrorState> {
+class GetAllHotelsComponent extends ErrorWidgetHandlerComponent<DashboardBloc,
+    DashboardState, HotelsLoadedState, HotelErrorState> {
   const GetAllHotelsComponent({super.key});
 
   @override
@@ -23,7 +23,7 @@ class GetAllHotelsComponent extends ErrorWidgetHandlerComponent<HotelBloc,
   Widget buildError(BuildContext context, HotelErrorState errorState) {
     return ErrorScreenWidget(
       onPressed: () {
-        context.read<HotelBloc>().add(GetAllHotelsEvent());
+        context.read<DashboardBloc>().add(GetAllHotelsEvent());
       },
     );
   }

@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import '../../base/screen/stateful_screen.dart';
 import 'package:hotel_booking/presentation/presentation.dart';
 
-class FavoriteScreen extends StatefulScreen<FavoriteBloc> {
+class FavoriteScreen extends StatefulScreen<DashboardBloc> {
   const FavoriteScreen({
     super.key,
   });
@@ -12,11 +12,11 @@ class FavoriteScreen extends StatefulScreen<FavoriteBloc> {
   }
 }
 
-class _FavoriteScreenState extends ScreenState<FavoriteBloc> {
+class _FavoriteScreenState extends ScreenState<DashboardBloc> {
   final AppAlerts alerts = AppAlerts();
   @override
   void initState() {
-    context.read<FavoriteBloc>().add(GetAllFavoriteEvent());
+    context.read<DashboardBloc>().add(GetAllFavoriteEvent());
     super.initState();
   }
 
@@ -53,7 +53,7 @@ class _FavoriteScreenState extends ScreenState<FavoriteBloc> {
       alerts.showAlertDialog(
           context, "Do you really want to remove it from favorites?".tr(), () {
         context
-            .read<FavoriteBloc>()
+            .read<DashboardBloc>()
             .add(RemoveFavoriteEvent(hotelId: state.hotelId));
         Navigator.of(context).pop();
       }, "Remove".tr());

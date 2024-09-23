@@ -108,9 +108,8 @@ class HotelCardWidget extends StatelessWidget {
                   text: "Add to Favorite".tr(),
                   onPress: () {
                     context
-                        .read<HotelBloc>()
+                        .read<DashboardBloc>()
                         .add(AddToFavoriteEvent(hotel: hotel));
-                    context.read<FavoriteBloc>().add(GetAllFavoriteEvent());
                   },
                 ),
               )

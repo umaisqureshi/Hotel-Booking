@@ -16,7 +16,7 @@ class _FavoriteListWidgetState extends State<FavoriteListWidget> {
       durations:
           const RefreshIndicatorDurations(cancelDuration: Duration(seconds: 2)),
       onRefresh: () async {
-        context.read<FavoriteBloc>().add(GetAllFavoriteEvent());
+        context.read<DashboardBloc>().add(GetAllFavoriteEvent());
       },
       backgroundColor: Colors.white,
       indicatorBuilder: (context, controller) {
