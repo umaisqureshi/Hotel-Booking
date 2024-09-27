@@ -2,6 +2,7 @@ import '../../../presentation.dart';
 part 'dashboard_event.dart';
 part 'dashboard_state.dart';
 
+
 @injectable
 class DashboardBloc extends BaseBloc<DashboardEvent, DashboardState> {
   final GetHotelsUseCase _getHotelsUseCase;
