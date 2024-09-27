@@ -9,7 +9,8 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:hotel_booking/data/data.dart' as _i4;
 import 'package:hotel_booking/data/local/local_database.dart' as _i6;
 import 'package:hotel_booking/data/remote/api_service.dart' as _i5;
-import 'package:hotel_booking/data/repository/hotels_repository.dart' as _i7;
+import 'package:hotel_booking/data/repository/hotels_repository_implementation.dart'
+    as _i7;
 import 'package:hotel_booking/domain/domain.dart' as _i10;
 import 'package:hotel_booking/domain/favorite/add/add_favorite_use_case.dart'
     as _i11;
@@ -43,7 +44,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i3.AccountBloc>(() => _i3.AccountBloc());
     gh.factory<_i4.HotelsDataSource>(() => _i5.HotelApiService());
     gh.factory<_i4.HotelsLocalDatasource>(() => _i6.LocalDatabaseService());
-    gh.factory<_i7.HotelsRepository>(() => _i7.HotelsRepository(
+    gh.factory<_i4.HotelsRepository>(() => _i7.HotelsRepositoryImplementation(
           hotelsDataSource: gh<_i4.HotelsDataSource>(),
           localDataSource: gh<_i4.HotelsLocalDatasource>(),
         ));

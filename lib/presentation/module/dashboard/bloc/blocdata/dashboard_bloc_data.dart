@@ -6,5 +6,6 @@ part 'dashboard_bloc_data.freezed.dart';
 @freezed
 class DashboardBlocData with _$DashboardBlocData {
   const factory DashboardBlocData(
-      {HotelEntity? hotels, @Default([]) List<Hotel>? favoriteHotels}) = _DashboardBlocData;
+      {HotelEntity? hotels,
+      @Default([]) List<Hotel>? favoriteHotels}) = _DashboardBlocData;
 }
